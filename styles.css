@@ -3,7 +3,7 @@
 } */
 
 #main-container {
-    height: 100vh;
+    height: 690px;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -11,14 +11,29 @@
     align-items: center;
 }
 
+#grid-container {
+    margin-bottom: 20px;
+}
+
+#intro-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    align-items: center;
+    margin-bottom: -20px;
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+}
+
 .sketch-cell {
-    border: 1px solid black; 
-    height: .8em; 
-    width: .8em;
+    height: 3px; 
+    width: 3px;
 }
 
 .sketch-cell-active {
-    background-color: black;
+    background-color: #585c57;
 }
 
 .sketch-row {
@@ -30,20 +45,28 @@
     justify-content: center;
     align-items: center;
 }
-
-#grid-size-btn, #reset-btn {
+#reset-btn {
     background-color: #fff;
     color: #000;
+    font-size: 27px;
+    padding: 14px 27px;
     border: 1px solid black;
     transition: .3s;
-    margin: 1em;
+    /* margin: 1em; */
 }
 
-#grid-size-btn:hover, #reset-btn:hover {
+#reset-btn:hover {
     background-color: #000;
     color: #fff;
 }
 
-#grid-size-btn:active, #reset-btn:active {
+#reset-btn:active {
     transform: translateY(4px);
+}
+
+#etch-a-sketch {
+    width: 700px;
+    height: auto;
+    position:absolute;
+    z-index: -1;
 }
