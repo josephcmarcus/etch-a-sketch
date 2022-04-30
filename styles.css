@@ -1,11 +1,25 @@
+/* body {
+    height: 100vh;
+} */
+
 #main-container {
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.sketch-box {
-    width: 75px;
-    height: 75px;
-    background-color: grey;
-    margin: 5px;
+.sketch-cell {
+    border: 1px solid black; 
+    height: .8em; 
+    width: .8em;
+}
+
+.sketch-cell-active {
+    background-color: black;
+}
+
+.sketch-row {
+    display: flex;
 }

@@ -1,9 +1,23 @@
-const mainContainer = document.getElementById('main-container');
+const gridContainer = document.getElementById('grid-container');
 
-function makeBox(num = 16) {
+function makeGrid(num) {
     for (let i = 0; i < num; i++) {
-    const createDiv = document.createElement("div");
-    createDiv.classList.add('sketch-box');
-    mainContainer.append(createDiv);
+        const row = document.createElement('div');
+        row.classList.add('sketch-row');
+        gridContainer.append(row);
+        for (let i = 0; i < num; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('sketch-cell');
+            row.append(cell);
+        }
     }
+}
+
+makeGrid(16);
+
+const cells = document.getElementsByClassName('sketch-cell');
+for (cell of cells) {
+    cell.addEventListener('mouseover', function onHover() {
+        this.style.background = 'black';
+    });
 };
