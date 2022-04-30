@@ -15,9 +15,23 @@ function makeGrid(num) {
 
 makeGrid(16);
 
+function removeAllCells() {
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+}
+
 const cells = document.getElementsByClassName('sketch-cell');
 for (cell of cells) {
     cell.addEventListener('mouseover', function onHover() {
         this.style.background = 'black';
     });
 };
+
+const btn = document.getElementById('grid-size-btn');
+
+btn.addEventListener('click', function gridSize() {
+    const num = prompt('Enter a number to resize the grid. You number will become the number of squares per side).');
+    removeAllCells()
+    makeGrid(num);
+});
