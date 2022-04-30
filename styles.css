@@ -25,20 +25,25 @@
     display: flex;
 }
 
-#grid-size-btn {
-    height: 30px;
-    margin: 1em;
+#btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-size-btn, #reset-btn {
     background-color: #fff;
     color: #000;
     border: 1px solid black;
-    transition: .3s
+    transition: .3s;
+    margin: 1em;
 }
 
-#grid-size-btn:hover {
+#grid-size-btn:hover, #reset-btn:hover {
     background-color: #000;
     color: #fff;
 }
 
-#grid-size-btn:active {
+#grid-size-btn:active, #reset-btn:active {
     transform: translateY(4px);
 }

@@ -1,4 +1,8 @@
 const gridContainer = document.getElementById('grid-container');
+const gridSizeBtn = document.getElementById('grid-size-btn');
+const resetBtn = document.getElementById('reset-btn');
+const cells = document.getElementsByClassName('sketch-cell');
+const delayTime = 100;
 
 function makeGrid(num) {
     for (let i = 0; i < num; i++) {
@@ -13,25 +17,44 @@ function makeGrid(num) {
     }
 }
 
-makeGrid(16);
-
 function removeAllCells() {
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 }
 
-const cells = document.getElementsByClassName('sketch-cell');
-for (cell of cells) {
+function paint() {
+    for (cell of cells) {
     cell.addEventListener('mouseover', function onHover() {
         this.style.background = 'black';
     });
-};
+  };
+}
 
-const btn = document.getElementById('grid-size-btn');
+function resetGrid() {
+    for (cell of cells) {
+        cell.style.background = 'white';
+    }
+}
 
-btn.addEventListener('click', function gridSize() {
-    const num = prompt('Enter a number to resize the grid. You number will become the number of squares per side).');
+makeGrid(16);
+paint();
+
+resetBtn.addEventListener('click', function resetGrid() {
+    for (cell of cells) {
+        cell.style.background = 'white';
+    }
+});
+
+gridSizeBtn.addEventListener('click', function gridSize() {
+    let num = prompt('Enter a positive number to resize the grid. You number will become the number of squares per side).');
+        while (num < 1) {
+            num = prompt('You must enter a positive number.');
+        }
     removeAllCells()
     makeGrid(num);
+    resetGrid();
+    setTimeout(function () {
+        paint();
+    }, delayTime);
 });
