@@ -2,13 +2,12 @@ const gridContainer = document.getElementById('grid-container');
 const resetBtn = document.getElementById('reset-btn');
 const cells = document.getElementsByClassName('sketch-cell');
 
-function makeGrid(num) {
-    let rowLength = num + 50;
-    for (let i = 0; i < num; i++) {
+function makeGrid() {
+    for (let i = 0; i < 110; i++) {
         const row = document.createElement('div');
         row.classList.add('sketch-row');
         gridContainer.append(row);
-        for (let i = 0; i < rowLength; i++) {
+        for (let i = 0; i < 160; i++) {
             const cell = document.createElement('div');
             cell.classList.add('sketch-cell');
             row.append(cell);
@@ -24,7 +23,7 @@ function paint() {
   };
 }
 
-makeGrid(110);
+makeGrid();
 paint();
 
 resetBtn.addEventListener('click', function resetGrid() {
